@@ -1,0 +1,8 @@
+ts person	group	bike 	surface
+1646	ana	1 small	Start, Bump, Smooth, Sidewalk first 6 sec irrelevant
+1648	wouter	1 small "
+1650	robert  1 big " last 20s irrelevant
+1654	kaifeng 1 big " bump at end
+1656    wouter  1 big " 
+
+
