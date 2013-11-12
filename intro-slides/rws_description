@@ -1,0 +1,63 @@
+App that records your location and checks the road for quality with sensor data. 
+
+The user:
+- All bikers
+
+The solution:
+- An app that uses the sensors of the smartphone to detect the road quality
+
+
+
+What do we mean by quality of the road?
+
+Exact data:
+- The quality of the road itself, roughness
+- The quality of the air, CO2 levels
+- Amount of trees
+- Noise levels
+- Busyness of the road
+- Separate bicycle lane or on the same road with cars
+- Change in height
+- Historical sites with GPS
+
+
+Sentimental data:
+- Nice scenery?
+
+
+
+
+
+Benefits for the user:
+- Route-planner (turn-by-turn)
+- Record route history
+- Share recorded routes with friends
+- Calorie-counter
+- Shows maintenance on route and detours
+- Shows bad parts of the road
+
+Benefits for rijkswaterstaat/local government:
+- Damaged pavement is detected faster, repair costs are smaller.
+- Quality of their maintenance rises due to better planning
+- Better insight in road usage by bikers
+
+
+Pitfalls:
+- Privacy issues
+- Battery drainage 
+- Smartphone most be in a fixed position
+- Not sure if it is going to work at all!
+- Only works well when it is used by a lot of people
+
+
+Why would someone use the app? 
+- 
+
+
+
+- Create an API
+
+
+
+
+
