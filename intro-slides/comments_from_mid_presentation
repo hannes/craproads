@@ -1,28 +1,39 @@
+Bike-lane centric!
+
 Comments:
 - Look at iSPEX
+  * Result: not applicable incentive model (they expect people to pay for the sensors)
 
 Ideas:
-- If your potholes gets fixed you will get points. Gamification!
-	* More points with better information
-- Look at other possible stakeholders, e.g. Eneco
-- Use the niche of sportive cyclists. They are probably more interested to report on roads and maybe get a kick out of it? 
 - Give feedback to the user about what happened with the report or if it is fixed or when it is fixed 
-- Detect changing behavior
-- Client side receives update only in their 
+	* If your potholes gets fixed you will get points. Gamification!
+	* More points with better information
+- Look at other possible stakeholders, 
+	* Eneco (to give away promotion dynamos), 
+    * bike rental companies (to install devices and get back info on their customer's preferred routes 
+							+ improving bike lanes quality decreases the need for bike maintenance)
+- Use the niche of sportive cyclists. They are probably more interested to report on roads and maybe get a kick out of it? 
+	* social media mining, find out their digital venues
+	* visual information retrieval on uploaded camera footage
+- Detect changing behavior - construct user templates and profiles
+- Client-side receives updates based only on the subscription query
 - Make the framework available as an API
-- Integrate meteo-data and weather forecasts (ijzel)
-- Include other data of the road:
+- Integrate meteo-data and weather forecasts (glazed frost)
+- Include other data about the road:
     * Type of surface
     * The quality of the air, CO2 levels
-    * Amount of trees
     * Noise levels
     * Busyness of the road
     * Separate bicycle lane or on the same road with cars
     * Change in height
-    * Historical sites with GPS
     * Enough light?
     * Well signaled?
-    * What kind of scenery?
+    * What kind of scenery? e.g.  Amount of trees
+    * typical participants in traffic for a specific lane (percentages of bikers, scooters, joggers etc)
+- heterogeneous data sources   
+	* joggers, most likely to take a photo of a pothole, report branches and leaves 
+	* scooters?
+	
     
 Problems:
 - How to cope with false positives of de detector?
@@ -32,13 +43,18 @@ Problems:
 - Position of smartphone
 
 
-Benefits for the user:
+Benefits for the end-user:
 - Route-planner (turn-by-turn)
 - Record route history
 - Share recorded routes with friends
 - Calorie-counter
 - Shows maintenance on route and detours
 - Shows bad parts of the road
+
+Benefits for intermediate users (developers of apps):
+- A framework that provides info which may be combined with other sources to build new apps:
+	* Historical sites based on the GPS coordinates
+	* Bird-viewing    
 
 Benefits for RWS:
 - Damaged pavement is detected faster, repair costs are smaller.
