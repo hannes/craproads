@@ -11,9 +11,40 @@ Ideas:
 - Client side receives update only in their 
 - Make the framework available as an API
 - Integrate meteo-data and weather forecasts (ijzel)
-- Include data on road surface
-
+- Include other data of the road:
+    * Type of surface
+    * The quality of the air, CO2 levels
+    * Amount of trees
+    * Noise levels
+    * Busyness of the road
+    * Separate bicycle lane or on the same road with cars
+    * Change in height
+    * Historical sites with GPS
+    * Enough light?
+    * Well signaled?
+    * What kind of scenery?
+    
 Problems:
 - How to cope with false positives of de detector?
 - How do we store the data
-- 
+- Privacy issues
+- Battery drainage
+- Position of smartphone
+
+
+Benefits for the user:
+- Route-planner (turn-by-turn)
+- Record route history
+- Share recorded routes with friends
+- Calorie-counter
+- Shows maintenance on route and detours
+- Shows bad parts of the road
+
+Benefits for RWS:
+- Damaged pavement is detected faster, repair costs are smaller.
+- Quality of their maintenance rises due to better planning
+- Better insight in road usage by bikers
+
+
+
+
