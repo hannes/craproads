@@ -1,0 +1,19 @@
+Comments:
+- Look at iSPEX
+
+Ideas:
+- If your potholes gets fixed you will get points. Gamification!
+- More points with better information
+- Look at the third parties, e.g. Eneco
+- Use the niche of sportive cyclists. They are probably more interested to report on roads and maybe get a kick out of it? 
+- Give feedback to the user about what happened with the report or if it is fixed or when it is fixed 
+- Detect changing behavior
+- Client side receives update only in their 
+- Make the framework available as an API
+- Integrate meteo-data and weather forecasts (ijzel)
+- Include data on road surface
+
+Problems:
+- How to cope with false positives of de detector?
+- How do we store the data
+- 
