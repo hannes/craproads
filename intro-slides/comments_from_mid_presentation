@@ -33,7 +33,11 @@ Ideas:
 - heterogeneous data sources   
 	* joggers, most likely to take a photo of a pothole, report branches and leaves 
 	* scooters?
-	
+- from Milou
+	* identifying traffic jams would be a great feature
+- from Joep van Wijk (NWO)
+	* an API for bigger players (Google, FB etc)
+	* privacy would not be an obstacle, as long as people are informed about the t.o.c
     
 Problems:
 - How to cope with false positives of de detector?
