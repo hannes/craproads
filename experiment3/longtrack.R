@@ -1,11 +1,24 @@
 setwd("~/git/craproads/experiment3/")
 
+library(rgdal)
+roads.amsterdam <- readOGR(".", "roads-amsterdam")
+
+
+d <- read.csv("raw/2013-11-14_08-47-24.csv",header=T)
+d$rider <- "Hannes"
+d$bike <- "hannes"
+d$exp <- "ToWork2"
+d$obs <- 1:nrow(d)
+dall <- d
+
+
 d <- read.csv("raw/2013-11-13_08-51-23.csv",header=T)
 d$rider <- "Hannes"
 d$bike <- "hannes"
-d$exp <- "Hannes-ToWork"
+d$exp <- "ToWork"
 d$obs <- 1:nrow(d)
-dall <- d
+dall <- rbind(dall,d)
+
 dall$acc <- sqrt(dall$accelerationX^2 + dall$accelerationY^2 + dall$accelerationZ^2)
 
 library(ggplot2)
@@ -21,16 +34,26 @@ dev.off()
 #   scale_colour_gradient(low="green",high="red")
 # dev.off()
 
-library(rgdal)
-roads.amsterdam <- readOGR(".", "roads-amsterdam")
-pdf("map.pdf")
-plot(roads.amsterdam,xlim=c(4.91,4.95),ylim=c(52.374,52.3749),col="lightgray")
+
+exps <- split(dall,dall$exp)
 colfunc <- colorRampPalette(c("green", "red"))
 gradcols <- colfunc(100)
-dall$accscaled <- dall$acc/max(dall$acc)
-dall$col <- gradcols[round(dall$accscaled*length(gradcols))]
-s <- seq(length(dall$acc)-1)
-segments(dall$long[s], dall$lat[s], dall$long[s+1], dall$lat[s+1], col=dall$col,lwd=dall$accscaled*10)
+    
+plotmap <- function(x) {
+  plot(roads.amsterdam,xlim=c(4.91,4.95),ylim=c(52.36442,52.37634),col="lightgray")
+  x$accscaled <- x$acc/max(x$acc)
+  x$col <- gradcols[round(x$accscaled*length(gradcols))]
+  s <- seq(length(x$acc)-1)
+  segments(x$long[s], x$lat[s], x$long[s+1], x$lat[s+1], col=x$col,lwd=x$accscaled*10)
+#  box(which = "plot", lty = "solid")
+  
+  NULL
+}
+
+pdf("map.pdf",width=7,height=10)
+par(mfcol=c(2,1), mar=c(.5,0,.5,0), oma=c(0,.5,0,.5))
+
+lapply(exps,plotmap)
 dev.off()
 
 # install.packages("rgdal",configure.args='--with-gdal-config=/export/scratch1/hannes/fakefs/bin/gdal-config --with-proj-share=/export/scratch1/hannes/fakefs/share/proj')
