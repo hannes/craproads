@@ -32,7 +32,7 @@
 \begin{document}
 \begin{frontmatter}
 
-\title{Opportunistic sensing to improve bike traffic}
+\title{Opportunistic sensing to improve bike road infrastructure}
 
 \author{RWS group}
 %\ead{e.kaldeli@rug.nl}
@@ -172,9 +172,29 @@ though not giving sufficient privacy guarantees. On the other hand,
 having user profiles related to sensed data, would highly increase the
 quality of the acquired data.
 
+\begin{figure}[ht]
 \begin{center}
-ADD FIGURE FROM WHITEBOARD
+\includegraphics[width=100mm]{figures/systemoverview}
+\caption{Architectural overview.\label{fig:sys}}
 \end{center}
+\end{figure}
+
+A possible high-level architectural overview of the system is
+presented in Figure~\ref{fig:sys}. The smartphone (on the
+bottom-right) is responsible for the opportunistic sensing and user
+interaction, thus acquiring the raw data. The data is then processed
+on a base station (on the top-right), possibly in the control of the
+end user. Raw data is transformed into meaningful infrastructure
+events. The smartphone also has extra components which create added
+value for the end user and can help foster his adoption  and usage of
+the app, namely, a routeplanner, a biometric ``BikeKeeper'' component
+for the tracking of physical activities, and so on. The events
+acquired by the individuals are then aggregated on the back end
+servers (on the left of the figure). The event and possibly raw sensor
+data are also correlated with relevant external information, such as
+that on the weather, from other sources monitoring the quality of the
+roads, such as Fietsersbond, etc.
+
 
 
 \subsection{User interaction}
@@ -203,10 +223,79 @@ study of what works is necessary to establish an effective marketing
 strategy for the app.
 
 
-\section{Scenarios}
+\section{Scenarios of application}
+
+\subsection{Stakeholders}
+
+\subsection{Scenario: the end-user}
+
+\subsection{Scenario: RWS}
+
+
 
 
 \section{Pilot project to check feasibility}
+
+To come to a first design of a solution, we propose to run a
+pilot project to acquire evidence of what kind of sensing provides
+readings that correlate to infrastructure quality. The experiment will
+be designed in the following way.
+
+\begin{description}
+\item[Ground truth construction]\mbox{}\\[-2ex]
+\noindent
+  \begin{enumerate}
+  \item RWS will provide a classification of
+    infrastructure based on its known construction and aging
+    qualities. 
+  \item RWS will also provide a classification of faults that can be
+    present in the infrastructure (e.g., pothole classification)
+  \item RWS will provide geographical indications of where an instance
+    of each of the types of roads and faults are present in the
+    infrastructure. These should be defined as stretches of about
+    50-100 meters. These should be geographically close to each 
+    \item The research team will videorecord cyclist pedaling on such
+      identified stretches.
+    \item The research team will manually annotate the videos
+      indicating quality properties of the infrastructure. The
+      annotations are then related to geographical location with an
+      accuracy of at least 1 meter.
+\end{enumerate}
+
+\item[Sensor readings]\mbox{}\\
+%  \begin{enumerate}
+%    \item 
+      The research team will perform sensor readings utilizing all
+      sensors of a smartphone by running over the identified road
+      stretches. For each stretch, at least 5 different configurations
+      are used. Each configuration entails a unique type of bicycle
+      and a unique user. Each test is repeated at least 6 times. 3
+      times with the phone attached in solid to the bike and 3
+      times with the phone on the user (pants, jacket, backpack).
+%  \end{enumerate}
+
+\item[Data Analysis]\mbox{}\\
+%  \begin{enumerate}
+%   \item 
+      The research team will then analyse the acquired sensor data and
+      compared it with the ground truth in order to find correlations
+      between sensor readings and infrastructure qualities. 
+%  \end{enumerate}
+\end{description} 
+
+The end results of the pilot is to come to a preliminary conclusion of
+what are the possible sensor readings and bike-user configurations
+that allow an assessment of the infrastructure quality. It also allows
+to understand the volume and velocity of sensor produced data and
+types of data analysis necessary to transform raw data into
+events. This will allow to make a design that answers the first
+challenge of the project: that is opportunistic sensing. The next
+problem to then be addressed is the distributed architecture. Finally,
+having solved the data management issues, one can then move on to the
+second research question: user engagement and safety.
+
+
+
 
 
 
