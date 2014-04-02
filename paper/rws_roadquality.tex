@@ -234,16 +234,10 @@ In an initial experiment, we have used a number of volunteers and two different 
 \end{figure}
 
 
-In this experiment, we controlled for three additional factors: First, the same bike was used for all runs. Second, only two separate volunteers were used. Third, we controlled for the location of the phone on the bike, such that one rider (``Hannes'') was riding our test track with the phone taped to the bikes steering column. This setup is pictured in Figure~\ref{fig:exsetup}. The second rider (``Wouter'') would always place the phone in his coat pocked. In addition, we added different routes and riding styles. Figure~\ref{fig:accplot2} contains the acceleration vectors from this experiment. What we can see from this data is significantly more consistent and less spiky results from the runs of the first rider, which had the phone taped to the bike itself. Also, when comparing the first three plots, we can see how the riding style has a significant impact on the acceleration. At the same time, the acceleration from the second rider with the phone in the coat pocket show seemingly random fluctuations in the acceleration data. In particular, the last run, where the rider went up and down the sidewalk to induce maximum acceleration did not seem to have any effect on the acceleration, instead the inverse is apparent. From this experiment we conclude that a fixed attachment of the measuring device (such as a phone) to the bike is so far the best chance of accurate data collection. This can easily be achieved with commercially available phone holders\footnote{e.g. \url{http://www.lifeproof.com/shop/us_en/bike-mount/}}.
+In this experiment, we controlled for three additional factors: First, the same bike was used for all runs. Second, only two separate volunteers were used. Third, we controlled for the location of the phone on the bike, such that one rider (``Hannes'') was riding our test track with the phone taped to the bikes steering column. This setup is pictured in Figure~\ref{fig:exsetup}. The second rider (``Wouter'') would always place the phone in his coat pocked. In addition, we added different routes and riding styles. Figure~\ref{fig:accplot2} contains the acceleration vectors from this experiment. What we can see from this data is significantly more consistent and less spiky results from the runs of the first rider, which had the phone taped to the bike itself. Also, when comparing the first three plots, we can see how the riding style has a significant impact on the acceleration. At the same time, the acceleration from the second rider with the phone in the coat pocket show seemingly random fluctuations in the acceleration data. In particular, the last run, where the rider went up and down the sidewalk to induce maximum acceleration did not seem to have any effect on the acceleration, instead the inverse is apparent. From this experiment we conclude that a fixed attachment of the measuring device (such as a phone) to the bike has so far the best chances of accurate data collection. This can easily be achieved with commercially available phone holders\footnote{e.g. \url{http://www.lifeproof.com/shop/us_en/bike-mount/}}.
 
 
 \subsection{Long-Run Repeated Experiment}
-
-
-
-
-
-
 \begin{figure}
 \centering
 \includegraphics[width=13cm]{figures/accelerationplot-longtrack}
@@ -251,16 +245,30 @@ In this experiment, we controlled for three additional factors: First, the same 
 \label{fig:accplotlong}
 \end{figure}
 
-
-
+To investigate the matter further, we have performed a longer experiment on a real-world bike track, which was part of the daily ride to work for one of our volunteers. The experiment track was about 2.5 kilometers long and consistet of bike roads of decreasing quality. For this experiment, the phone was also fixed to the bike as displayed in Figure~\ref{fig:exsetup}. This experiment was repeated two times. The acceleration plots are shown in Figure~\ref{fig:accplotlong}. We can see how there is a clear correlation between the two paths, albeit with a considerable time offset. Since the vertical axis of the plot is time, this can be explained through the different speeds at which the track was finished. 
 
 \begin{figure}
 \centering
-\includegraphics[width=8cm]{figures/map}
-\caption{Acceleration spikes/coordinates plotted on map}
+\includegraphics[width=16cm]{figures/map}
+\caption{Acceleration and GPS coordinates plotted on test area map}
 \label{fig:map}
 \end{figure}
 
+
+However, since our method of data collection also contained GPS coordinates, we were able to overlay the measured acceleration data with a map of the area. This plot is shown in Figure~\ref{fig:map}. The acceleration measurements were mapped to a color scale with gradients between green (no acceleration) and red (high acceleration). This relationship is also expressed through the different sizes of the plotted points, with a larger point representing higher acceleration as well. When comparing the two plots, we can observe that there seems to be a definitive correlation between the position of the bike and the measured acceleration. However, there are still some significant differences, for example the second track contains a large acceleration spike that the first track does not show. Of course, it is likely that the first track simply missed a pothole or a similar anomaly in the road. At the same time, there is a large spike that shows in both tracks, so we investigated further, and the bike lane is indeed very ``bumpy'' at this very position. From this experiment, we conclude that acceleration data together with position and the current time is ample information to track the bike road quality, and spurious readings can be removed given enough separate measurements.
+
+\subsection{Data Analysis Sketch}
+Given our experimental results and observations, we can describe a sketch of a data analysis system based on GPS information, time and acceleration data delivered from smart phones to a central location. 
+
+In a first step, the acceleration data has to be normalized between particular bike, riding style and data collection device. An obvious solution would be to normalize the observed acceleration to a common scale based on the individual minimum, maximum and average values. 
+
+Second, since individual people's tracks through a urban area are likely different, we need to split these paths up into common segments, for example based on segments of road between crossroads or housing blocks, one for each direction of travel. This allows us to compare the measurements of different participants that follow different routes. 
+
+Third, the GPS coordinates collected might exhibit significant fluctuation, in particular when riding between buildings. However, since  timing data as well as information about the underlying road network are available, we can normalize the position data to the actual bike road. 
+
+Last, we can the correlate the acceleration peaks between the individual road segments and positions therein. Only peaks that are consistently shown in the measured data would be eligible for future observation and reported as actual findings of bike road issues. 
+
+It should be noted that this is a fully automated process and no human intervention is required for data collection (besides attaching a data collection device such as a phone to the bike). Similarly, the data can be analyzed without manual interaction as well. However, when considering the actual repair of the bike roads, this does not hold true any more.
 
 
 \section{Related work}
