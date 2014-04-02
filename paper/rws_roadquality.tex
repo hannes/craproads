@@ -43,7 +43,17 @@
 
 \section{Abstract}
 
-TODO
+The increasingly ubiquitous nature of the digital society opens 
+new avenues for social innovation. A difficult challenge in this context
+is to correctly identify new types of trade-offs, as well as envision 
+promising strategies. As a concrete case study, we analyze the direct society participation
+in the complete process of bike lane maintenance. In this report, we identify 
+key aspects to consider when designing such a framework, as well as describe
+our approach to obtaining a trade-off between bike lane safety and 
+bike lane information accuracy, by leveraging off-the-shelf technology like smartphones.
+Our approach shows promising initial results and underlines the areas of interest for a future 
+working group.
+ 
 
 \section{Company profile}
 
@@ -63,7 +73,7 @@ A relative new area of interest for Rijkswaterstaat is social innovation and, a.
 \section{Problem description}
 
 The Dutch government is positioning the participation society. Social Media is an important way to interact with citizens, companies and government. Safe use of social media is also important. At the moment, the Government launches a campaign about safe use of social media eg ``don't use it while driving''.
-The results of the Workshop 'ICT with Industry' will be used for the project `improving safety on bike lines'. This is a pilot project for Rijkswaterstaat on co-creation in which Rijkswaterstaat, Esri Nederland (and Lemon Innovation), with help of the Dutch cyclists association (fietsersbond), try to improve safety on our bike lanes. Around 80\% of the necessary information (on where unofficial bike lanes are located, condition of the lanes and safety issues) is available based on existing data bases, maps and data mining. The gaps have to be filled in by the cyclists themselves. Cyclists are willing to provide this information, at least, if it takes little effort; e.g. use twitter while driving. This conflicts with the Dutch policy of `safe use of social media'.
+The results of the Workshop 'ICT with Industry' will be used for the project `improving safety on bike lines'. This is a pilot project for Rijkswaterstaat on co-creation in which Rijkswaterstaat, Esri Nederland (and Lemon Innovation), with help of the Dutch cyclists association (fietsersbond), try to improve safety on our bike lanes. Around 80\% of the necessary information (on where unofficial bike lanes are located, condition of the lanes and safety issues) is available based on existing databases, maps and data mining. The gaps have to be filled in by the cyclists themselves. Cyclists are willing to provide this information, at least, if it takes little effort; e.g. use twitter while driving. This conflicts with the Dutch policy of `safe use of social media'.
 Our problem is `how can citizens (e.g. cyclist) provide information about the infrastructure facilitates in the Netherlands without significant extra effort and without endangering their safety'.
 Conditions are that citizens (or the government) should not have to invest in expensive sensors (i.e. common devices like smart phones should be used) and that not a lot of effort is involved (e.g. stop cycling, measure the width of the road, send a message or fill in a form on a website).
 
@@ -289,16 +299,30 @@ Anonymous data collected by on-bike tracking devices of public bike-hire and sim
 
 \section{Conclusions and outlook}
 
+In this work, we have investigated the trade-offs between bike lane safety and bike 
+lane information aggregation and accuracy. We have identified and prototyped an 
+approach which employs off-the-shelf technology (e.g. smartphones) to report on bike lane quality,
+using both online (but unconscious) and off-line support from cyclists. 
+Although our initial results are promising, we identified several key
+issues and their corresponding research/development areas where future work is needed:
+ 
 \begin{itemize}\setlength{\itemsep}{-3pt}
-\item Seems hard to determine from measurements alone, need for possible processing afterwards
-\item Is there power in numbers? (many measurements)
-\item Suggestion of pilot study
-\item KIEM project(?) / master projects
-\item Computer vision possibilities: camera taking photo when things get rough, etc
-\item Dialogue with stakeholders: what is available, what is possible
-\item Investigate privacy and security
-\item Seasonal effect and other temporally correlated issues?
+\item Measurements alone might not be sufficient, and more complex processing steps afterwards
+will require a thorough analysis on equipment investment. More complex processing 
+would belong to the data analytics field (e.g. seasonal impact or other temporally correlated issues),
+therefore linking this project to state-of-the-art developments in BigData.
+\item Another approach to address insufficient information accuracy is to increase dramatically the number of 
+measurements, which will again translate to equipment investment, as well as large-scale data analytics.
+%\item KIEM project(?) / master projects
+\item Computer vision state-of-the-art may be employed to further increase the accuracy of the information collected through
+societal participation.
+\item Social sciences could become involved in the project to support setting up a lightweight framework for dialog with stakeholders (e.g. what is available, what is possible). 
+%\item Investigate privacy and security
 \end{itemize}
+
+Finally, we would recommend the setup of a pilot study, which would allow 
+a deeper insight into the key issues mentioned before, as well as into those aspects 
+outside the scope of this report, such as the impact on privacy and security. 
 
 \bibliographystyle{abbrv}
 \bibliography{rws}
