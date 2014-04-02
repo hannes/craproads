@@ -25,7 +25,7 @@
 
 \vspace{2em}
 
-\noindent Wouter Meulemans$^1$, Robert Boensma$^2$, Ana-Maria Oprescu$^3$, Hannes Muehleisen$^4$, Marco Aiello$^5$, Kaifeng Yang $^6$, Ugo Vespier $^6$
+\noindent Wouter Meulemans$^1$, Robert Boensma$^2$, Ana-Maria Oprescu$^3$, Hannes M\"uhleisen$^4$, Marco Aiello$^5$, Kaifeng Yang $^6$, Ugo Vespier $^6$
 
 \vspace{1em}
 
@@ -33,13 +33,13 @@
 
 \vspace{1em}
 
-\noindent $^1$ \emph{Technische Universiteit Eindhoven, the Netherlands}\\
-\noindent $^2$ \emph{Universiteit Twente, the Netherlands}\\
-\noindent $^3$ \emph{University of Amsterdam, the Netherlands}\\
-\noindent $^4$ \emph{Centrum Wiskunde \& Informatica, the Netherlands}\\
-\noindent $^5$ \emph{LIACS Leiden University, the Netherlands}\\
-\noindent $^6$ \emph{Rijksuniversiteit Groningen, the Netherlands}\\
-\noindent $^7$ \emph{ESRI, the Netherlands}
+\noindent $^1$ \emph{Technische Universiteit Eindhoven, The Netherlands}\\
+\noindent $^2$ \emph{Universiteit Twente, The Netherlands}\\
+\noindent $^3$ \emph{University of Amsterdam, The Netherlands}\\
+\noindent $^4$ \emph{Centrum Wiskunde \& Informatica, Amsterdam, The Netherlands}\\
+\noindent $^5$ \emph{LIACS Leiden University, The Netherlands}\\
+\noindent $^6$ \emph{Rijksuniversiteit Groningen, The Netherlands}\\
+\noindent $^7$ \emph{ESRI, The Netherlands}
 
 \section{Abstract}
 
@@ -201,12 +201,67 @@ In the back end, we consider the servers and applications that use the road-qual
 
 \section{Data acquisition and analysis}
 
-\begin{itemize}\setlength{\itemsep}{-3pt}
-\item First analysis -> phone location matters,
-\item in pocket -> large signal from biking, we need the "noise"
-\item Second analysis - > hard to detect conceptually large differences (grass vs asphalt)
-\item Increasing measurement frequency (Hannes measurements)
-\end{itemize}
+An initial observation with regards to data collection was the wealth of sensors that are contain in modern ``smart'' phones. In addition, there are various applications that can record measurements from these sensors. For the initial experiment, we focused on the acceleration sensor under the assumption that bad road quality would result in additional acceleration of the rider and thus the phone. We used the free ``SensorLog'' application for Apple iOS\footnote{\url{https://itunes.apple.com/us/app/sensorlog/id388014573}} for the following experiments. Conveniently, the results are stored as CSV files, which made it easy to transfer the measurements to the R environment\footnote{\url{http://www.r-project.org}} for subsequent analysis.
+
+\subsection{Initial Exploratory Experiment}
+
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{figures/accelerationplot}
+\caption{Baseline acceleration plot}
+\label{fig:accplot}
+\end{figure}
+
+
+In an initial experiment, we have used a number of volunteers and two different bikes on a short (~100m) piece of bike road in Leiden. On the end of the selected stretch of road, there was a significant pothole, which we encouraged the volunteers to hit. For each run, we placed the phone with SensorLog running on the person riding the bike. In total, we collected ~2,500 measurements of acceleration over five different runs. Since the acceleration data is collected in three different spatial axes $x$, $y$ and $z$, we used the Euclidean norm $||a|| = \sqrt{a_x^2+a_y^2+a_z^2}$ to calculate the length of the acceleration vector as a combined metric. The results from this initial experiemnts is plotted in Figure~\ref{fig:accplot}. We can see how the measured acceleration varies greatly between runs over the identical road surface. Also, as can be seen from the comparision of the same person (``Wouter'') between two rides on different bikes (``big'' and ``small''), there are significant deviations. Hence, the signal-to-noise ratio of these measurements was deemed to be too great for useful analysis. There was also no visible sign of the deliberatly hit pothole at the end of the track. Since we did not control for the location of the phone on the person riding the bike (sometimes it was placed in a pants pocket, sometimes in a coat pocket etc.) and observed that the individual riding style influenced the measured acceleration, we found it neccessary to further control the involved parameters.
+
+
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{figures/bikec}
+\caption{Experimental phone-bike attachment method}
+\label{fig:exsetup}
+\end{figure}
+
+
+\subsection{Controlled Experiment}
+
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{figures/accelerationplot-2}
+\caption{Controlled experiment acceleration plot}
+\label{fig:accplot2}
+\end{figure}
+
+
+In this experiment, we controlled for three additional factors: First, the same bike was used for all runs. Second, only two separate volunteers were used. Third, we controlled for the location of the phone on the bike, such that one rider (``Hannes'') was riding our test track with the phone taped to the bikes steering column. This setup is pictured in Figure~\ref{fig:exsetup}. The second rider (``Wouter'') would always place the phone in his coat pocked. In addition, we added different routes and riding styles. Figure~\ref{fig:accplot2} contains the acceleration vectors from this experiment. What we can see from this data is significantly more consistent and less spiky results from the runs of the first rider, which had the phone taped to the bike itself. Also, when comparing the first three plots, we can see how the riding style has a significant impact on the acceleration. At the same time, the acceleration from the second rider with the phone in the coat pocket show seemingly random fluctuations in the acceleration data. In particular, the last run, where the rider went up and down the sidewalk to induce maximum acceleration did not seem to have any effect on the acceleration, instead the inverse is apparent. From this experiment we conclude that a fixed attachment of the measuring device (such as a phone) to the bike is so far the best chance of accurate data collection. This can easily be achieved with commercially available phone holders\footnote{e.g. \url{http://www.lifeproof.com/shop/us_en/bike-mount/}}.
+
+
+\subsection{Long-Run Repeated Experiment}
+
+
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=13cm]{figures/accelerationplot-longtrack}
+\caption{Final experiment acceleration plot}
+\label{fig:accplotlong}
+\end{figure}
+
+
+
+
+\begin{figure}
+\centering
+\includegraphics[width=8cm]{figures/map}
+\caption{Acceleration spikes/coordinates plotted on map}
+\label{fig:map}
+\end{figure}
+
+
 
 \section{Related work}
 
